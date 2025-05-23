@@ -1,5 +1,5 @@
 <h1 style="text-align:center;">
-    <img src="python.png" alt="Bootcamp Talento Digital Full Stack Python" style="width:100px;"></a> <br>Bootcamp Talento Digital Full Stack Python
+    <img src="python.png" alt="Bootcamp Talento Digital Full Stack Python" style="width:200px;"></a> <br>Bootcamp Talento Digital Full Stack Python
 </h1>
 <h2>Python BOTIC-SOFOF-24-28-13-0074</h2>
 <p>
