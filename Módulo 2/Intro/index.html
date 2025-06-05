@@ -1,10 +1,12 @@
 <!DOCTYPE html> <!-- Nos indica que usamos HTML5 -->
 <html lang="es"> <!-- Declara el HTML y indica el idioma -->
+
 <head>
     <meta charset="UTF-8"> <!-- Codificación de mi página -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intro a HTML</title>
 </head>
+
 <body>
     <!-- Headings -->
     <h1>Título Principal</h1>
@@ -16,17 +18,19 @@
 
     <!-- Párrafos -->
     <p>
-      <em>¡Hola!</em> Bienvenidos a la clase introductoria de <strong>HTML</strong>
+        <em>¡Hola!</em> Bienvenidos a la clase introductoria de <strong>HTML</strong>
     </p>
 
     <p>
-       <strong><em>Lorem</em></strong> ipsum dolor sit amet consectetur adipisicing elit. Unde cupiditate ipsum, vel eius, distinctio hic laborum perferendis expedita consequatur cumque nesciunt minus numquam autem officia quo ex inventore debitis modi?
+        <strong><em>Lorem</em></strong> ipsum dolor sit amet consectetur adipisicing elit. Unde cupiditate ipsum, vel
+        eius, distinctio hic laborum perferendis expedita consequatur cumque nesciunt minus numquam autem officia quo ex
+        inventore debitis modi?
     </p>
 
     <!-- Enlace/Hipervinculo/Vinculo/Anchor o Anclas -->
     <!-- href = al sitio web a donde voy a enviar a mi usuario -->
     <!-- target = en dónde lo voy a abrir -->
-    <a href="http://google.com" target="_blank" >Haz clic aquí para ir a Google</a>
+    <a href="http://google.com" target="_blank">Haz clic aquí para ir a Google</a>
 
     <h2>Lista Desordenada</h2>
     <ul> <!-- unordered list -->
@@ -73,6 +77,60 @@
         </tfoot>
     </table>
 
+    <img src="img/gatito.jpg" alt="Imagen de Gatito">
+    <img src="https://fotografias-compromiso.atresmedia.com/clipping/cmsimages02/2016/02/26/5659A6D3-EDA9-4B90-BB58-E124E432F1A6/69.jpg"
+        alt="Imagen de Gatito Bonito">
+
+    <video src="img/hola_mundo.mp4" controls loop muted></video>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-I49d6y6UXk?si=o1pD7mkyDFJnHhoY"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <form action="#" method="POST">
+        <div>
+            <label for="texto_nombre">Nombre:</label> 
+            <input type="text" id="texto_nombre" name="campo_nombre" maxlength="3" required >
+            <!-- id: guía para seleccionar dentro de la página (con css y js) FRONT
+             name: a la hora de enviar al servidor, me guío con ese name BACK -->
+        </div>
+        <div>
+            <label>Edad:</label>
+            <input type="number" name="campo_edad" min="10" max="50" >
+            <input type="password" name="contrasena" >
+            <input type="date" name="fecha_nacimiento" >
+            <input type="email" name="correo" >
+        </div>
+        <div>
+            <input type="radio" name="estado_civil" value="casado" id="input_casado" >
+            <label for="input_casado" >Casado</label> <br>
+            <input type="radio" name="estado_civil" value="soltero" id="input_soltero">
+            <label for="input_soltero" >Soltero</label>
+        </div>
+        <div>
+            <input type="checkbox" name="terminos" id="input_terminos" >
+            <label for="input_terminos" >Acepto términos y condiciones</label>
+        </div>
+        <div>
+            <select name="hobbie">
+                <option value="1" >Leer</option>
+                <option value="2">Ver tele</option>
+                <option value="3">Andar en Bici</option>
+            </select>
+            <select name="lenguaje">
+                <option value="py">Python</option>
+                <option value="js">Javascript</option>
+                <option value="mern">MERN</option>
+            </select>
+        </div>
+        <div>
+            <textarea name="comentario" cols="10" rows="3" ></textarea>
+        </div>
+        <input type="submit" value="Enviar Formulario" >
+        <!--button type="submit" >Enviar De otra forma</button-->
+    </form>
 
 </body>
+
 </html>
