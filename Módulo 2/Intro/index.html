@@ -5,6 +5,7 @@
     <meta charset="UTF-8"> <!-- Codificación de mi página -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intro a HTML</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -12,12 +13,12 @@
     <h1>Título Principal</h1>
     <h2>Título h2</h2>
     <h3>Título h3</h3>
-    <h4>Título h4</h4>
+    <h4 class="rojo subrayado">Título h4</h4>
     <h5>Título h5</h5>
-    <h6>Titulo h6</h6>
+    <h6 class="rojo amarillo">Titulo h6</h6>
 
     <!-- Párrafos -->
-    <p>
+    <p id="parrafo_especial" class="no_border">
         <em>¡Hola!</em> Bienvenidos a la clase introductoria de <strong>HTML</strong>
     </p>
 
@@ -26,6 +27,30 @@
         eius, distinctio hic laborum perferendis expedita consequatur cumque nesciunt minus numquam autem officia quo ex
         inventore debitis modi?
     </p>
+
+    <strong>Otro Strong afuera</strong>
+
+    <div class="contenedor">
+        <p>Este es párrafo hijo</p>
+        <div class="seccion">
+            <p>Este es un párrafo nieto</p>
+        </div>
+        <p>Este es un párrafo hijo también</p>
+    </div>
+
+    <div class="bloque">
+        <div class="pequeno"></div>
+        <div></div>
+        <div class="grande">
+            <a href="#">Enlace</a>
+            <div class="pequeno"></div>
+        </div>
+    </div>
+    <div class="pequeno"></div>
+    <small class="pequeno" >Pequeño</small>
+
+    <section id="seccion1" class="grande" ></section>
+    <section id="seccion2" class="grande"></section>
 
     <!-- Enlace/Hipervinculo/Vinculo/Anchor o Anclas -->
     <!-- href = al sitio web a donde voy a enviar a mi usuario -->
@@ -137,6 +162,7 @@
     <main></main> <!-- El contenido principal de mi sitio -->
     <article></article> <!-- Noticia o Artículo -->
     <footer></footer> <!-- Pie de Página de mi sitio -->
+    <h3 class="colores" >Pruebas de Color</h3>
 </body>
 
 </html>

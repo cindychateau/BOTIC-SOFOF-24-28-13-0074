@@ -1,0 +1,94 @@
+/*CSS: Cascade Style Sheets*/
+/*
+SELECTORES BASICOS:
+etiqueta {
+    propiedad: valor;
+}
+
+.clase {
+    propiedad: valor;
+}
+
+#id {
+    propiedad: valor;
+}
+
+*/
+
+h2 {
+    color: blue;
+    font-size: 45px;
+}
+
+.rojo {
+    color: red;
+}
+
+.amarillo {
+    color: yellow;
+}
+
+.subrayado {
+    text-decoration: underline;
+}
+
+#parrafo_especial {
+    border: 2px solid purple;
+    border-radius: 20px;
+}
+
+.no_border {
+    border: none;
+}
+
+/*Especificidad: ID, CLASE, ETIQUETA*/
+
+p strong { /*Etiqueta strong que está dentro de párrafo*/
+    text-transform: uppercase;
+}
+
+/*
+.rojo strong
+#parrafo_especial em
+.subrayado .abc123
+*/
+
+.contenedor > p { /*Descendente directo (hijos)*/
+    border: 1px dotted red;
+}
+
+/*
+#parrafo_especial > .peque
+.subrayado > #purpura
+*/
+
+small.pequeno {
+    font-size: 5px;
+}
+
+#seccion1.grande {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
+input[type="text"] {
+    width: 350px;
+}
+
+input[type="number"] {
+    height: 100px;
+    background-color: blue;
+    color: white;
+}
+
+.colores {
+    /*color: color de la letra*/
+    color: lightgreen; /*nombre de color*/
+    color: rgb(111, 192, 243); /*RGB*/
+    color: #ebf5ff;
+
+    /*background-color: color de fondo*/
+    background-color: black;
+}
+
