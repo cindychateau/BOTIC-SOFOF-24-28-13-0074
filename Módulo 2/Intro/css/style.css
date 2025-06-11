@@ -92,3 +92,73 @@ input[type="number"] {
     background-color: black;
 }
 
+.formato_verde {
+    color: green;
+    font-size: 10px;
+}
+
+#texto {
+    text-align: left; /*left, center, right, justify*/
+    text-decoration: underline; /*underline, line-through, none, overline*/
+    font-style: italic; /*italic, normal*/
+    font-weight: bold; /*bold, normal, light, 100, 300, 900*/
+    font-size: 20px; /* px, pt, em */
+    font-family: "Roboto", sans-serif; /* serif, monospace, cursive, sans-serif */
+}
+
+.tamano {
+    background-color: gray;
+    width: 400px; /* ancho */
+    height: 50px; /* alto */
+}
+
+.modelo_caja {
+    background-color: lightblue;
+    width: 100px;
+    height: 100px;
+    /*Margin: el espacio entre mi elemento y el resto de la página*/
+    margin: 20px; /* 4 lados aplican esa cantidad*/
+    margin-top: 40px; /* -top, -right, -bottom, -left */
+    margin: 70px 15px; /* ArribaAbajo IzqDer */
+    margin: 50px 10px 100px 200px; /*arriba der abajo izq*/
+    /*Padding: relleno o margen interno*/
+    padding: 20px;
+    padding-top: 100px; /* -top, -right, -bottom, -left */
+    padding: 50px 15px; /* ArribaAbajo IzqDer */
+    border: 2px solid black; /* solid, dotted, dashed, double*/
+}
+
+.inline {
+    display: inline; /*Me despliega los elementos en una sola linea PERO no me deja poner tamaños*/
+    background-color: red;
+    width: 100px;
+    height: 100px;
+}
+
+.block {
+    display: block; /*Me bloquea las cosas, NO puedo ponerlas en una sola línea PERO si puedo dar un tamaño*/
+    background-color: black;
+    width: 100px;
+    height: 100px;
+}
+
+/*INLINE-BLOCK*/
+.inline-block {
+    display: inline-block; /*Elementos en 1 sola linea, poder darles un tamaño*/
+    width: 300px;
+    border: 2px solid red;
+    vertical-align: middle;
+    margin: 50px;
+}
+
+#div1 {
+    height: 150px;
+}
+
+#div2 {
+    height: 300px;
+}
+
+#div3 {
+    height: 500px;
+}
