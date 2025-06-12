@@ -15,6 +15,13 @@ etiqueta {
 
 */
 
+/*CSS RESET*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
 h2 {
     color: blue;
     font-size: 45px;
@@ -126,6 +133,13 @@ input[type="number"] {
     padding-top: 100px; /* -top, -right, -bottom, -left */
     padding: 50px 15px; /* ArribaAbajo IzqDer */
     border: 2px solid black; /* solid, dotted, dashed, double*/
+    /*margin: 20px auto; CENTRAR DIV*/
+}
+
+.modelo_caja:hover {
+    background-color: aquamarine;
+    transition: all 2s ease-out;
+    border-radius: 10px;
 }
 
 .inline {
@@ -148,7 +162,7 @@ input[type="number"] {
     width: 300px;
     border: 2px solid red;
     vertical-align: middle;
-    margin: 50px;
+    /* margin: 50px; */
 }
 
 #div1 {
@@ -161,4 +175,15 @@ input[type="number"] {
 
 #div3 {
     height: 500px;
+}
+
+.background {
+    width: 400px; 
+    height: 600px;
+    border: 1px solid black;
+
+    background-color: aqua;
+    background-image: url(../img/gatito_small.jpg);
+    background-repeat: no-repeat;
+    background-size: contain; /*cover: estira vertical, contain: estirar horizontalmente*/
 }
