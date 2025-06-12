@@ -1,0 +1,68 @@
+/*CSS RESET*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.tarjeta {
+    background-color: white;
+    border: 1px solid #ccc;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta img {
+    width: 100%;
+}
+
+.contenido {
+    padding: 20px;
+}
+
+/*Tablets: MINIMO 768px*/
+@media(min-width: 768px) {
+    body {
+        background-color: #e6f0ff;
+    }
+
+    .tarjeta {
+        flex-direction: row;
+    }
+
+    .tarjeta img {
+        width: 45%;
+    }
+
+    .contenido {
+        width: 55%;
+        background-color: #f0f8ff;
+    }
+}
+
+/*Escritorio/Laptops: MINIMO 1024*/
+@media(min-width: 1024px) {
+    body {
+        background-color: #e0ffe0;
+    }
+
+    .tarjeta {
+        max-width: 900px;
+    }
+
+    .tarjeta img {
+        width: 40%;
+    }
+
+    .contenido {
+        width: 60%;
+        background-color: #f6fff6;
+    }
+}
