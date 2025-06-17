@@ -52,3 +52,77 @@ n += 5; // n = n+5 = 14 + 5 = 19
 let nombre_completo = "Pedro";
 nombre_completo += " Paramo";
 console.log(nombre_completo);
+
+//Booleano = true o false
+console.log(bool);
+console.log(10 > 5);
+
+if(bool) {
+    console.log("La variable es verdadera");
+} else {
+    console.log("la variable es falsa");
+}
+
+if(n >= 20) { //19 >= 20
+    console.log("N es mayor a 20")
+} else {
+    console.log("N es menor a 20");
+}
+
+//Operadores: > < >= <= == !=
+
+if(n != 10) {
+    console.log("N es distinto a 10");
+}
+
+//let edad_nino = prompt("Ingresa la edad del niño");
+let edad_nino = 3;
+if(edad_nino < 2) {
+    console.log("Es un bebe");
+} else if(edad_nino < 5) {
+    console.log("Es un toddler");
+} else {
+    console.log("Es un infante");
+}
+
+let temperatura = 20;
+let estaLloviendo = false; //NO esta lloviendo
+if(temperatura >= 18 && !estaLloviendo) { // && AND -> Ambas condicionales deben de cumplirse
+    console.log("Es un gran día para dar un paseo!");
+}else {
+    console.log("Otro día daremos un paseo si las condiciones son óptimas");
+}
+
+let edad_conductor = 17;
+let permisoPadres = true;
+if(edad_conductor >= 18 || permisoPadres) { // || OR -> una u otra condicional debe de cumplirse
+    console.log("Tienes permiso para obtener tu licencia de conducir.");
+}
+// ! -> te transforma a lo contrario
+
+let numero_dia = 8;
+
+switch(numero_dia){
+    case 1:
+    case 8:
+        console.log("Lunes");
+        break;
+    case 2:
+        console.log("Martes");
+        break;
+    case 3:
+        console.log("Miércoles");
+        break;
+    case 4:
+        console.log("Jueves");
+        break;
+    case 5:
+        console.log("Viernes... feriado!");
+        break;
+    case 6:
+        console.log("Sabado, a dormir");
+        break;
+    case 7:
+        console.log("Dormingo");
+        break;
+}
