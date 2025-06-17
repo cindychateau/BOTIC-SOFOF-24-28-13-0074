@@ -126,3 +126,116 @@ switch(numero_dia){
         console.log("Dormingo");
         break;
 }
+
+/*
+i = 0
+¡Hola!
+¿Cómo estás?
+---
+i = 1
+¡Hola!
+¿Cómo estás?
+---
+i = 2
+¡Hola!
+¿Cómo estás?
+---
+i = 3
+¡Hola!
+¿Cómo estás?
+---
+i = 4
+Termina el ciclo
+*/
+for(let i=0; i < 4; i++) { // i+= 1 o i++
+    console.log("¡Hola!");
+    console.log("¿Cómo estás?");
+}
+
+for(let i=10; i > 0; i--) { //for(inicialización; condicional; paso)
+    console.log(i);
+}
+
+/*
+x = 0
+Entramos al while
+x = 1;
+--
+Entramos al while
+x = 2;
+--
+Entramos al while
+x = 3
+*/
+let x = 0;
+while(x < 3) {
+    console.log("Entramos al while");
+    x++; //Aumentamos en 1 la x
+}
+/*
+inicio = 2
+final = 12
+Entramos al 2do While
+inicio = 4
+final = 11
+--
+Entramos al 2do While
+inicio = 6
+final = 10
+--
+Entramos al 2do While
+inicio = 8
+final = 9
+--
+Entramos al 2do While
+inicio = 10
+final = 8
+*/
+let inicio = 2;
+let final = 12;
+while(inicio < final) {
+    console.log("Entramos al 2do While");
+    inicio += 2;
+    final--;
+}
+
+// ARRAY/ARREGLOS/LISTAS
+let hobbies = [ "Leer", "Correr", "Bailar", "Cantar", "Jugar videojuegos", "Tocar la guitarra" ];
+
+console.log(hobbies[2]);
+
+hobbies[1] = "Nadar";
+console.log(hobbies);
+
+console.log(hobbies.length); // 6 = elementos en el array
+
+//A través de un bucle puedo recorrer un array
+for(let z=0; z < hobbies.length; z++) {
+    console.log(hobbies[z]);
+} 
+
+let combinado = [
+    1.11, //0
+    "texto", //1
+    true, //2
+    30, //3
+    [1, 2, 3] //4
+];
+
+let nombres = ["Elena", "Juana", "Pedro"];
+nombres.push("Pablo");
+console.log(nombres);
+nombres.pop();
+console.log(nombres);
+
+let matriz = [
+    [1, 2, 3, 4, 5], //matriz[0]
+    [6, 7, 8, 9] //matriz[1]
+];
+
+matriz[1].push(10);
+
+let lista_vacia = [];
+
+
+
