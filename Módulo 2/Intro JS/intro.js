@@ -237,5 +237,75 @@ matriz[1].push(10);
 
 let lista_vacia = [];
 
+let estudiante = {
+    "id": 1234,
+    "nombre": "Elena",
+    "apellido": "De Troya",
+    "edad": 25,
+    "casado": false,
+    "cursos": ["Front-End", "Python"],
+    "direcciones": [
+        {
+            "calle": "Av. Sol",
+            "num": 123,
+            "ciudad": "Lima",
+            "pais": "Peru"
+        },
+        {
+            "calle": "Primera Avenida",
+            "num": 345,
+            "ciudad": "Monterrey",
+            "pais": "Mexico"
+        }
+    ]
+};
+console.log(estudiante["nombre"]);
+console.log(estudiante.apellido);
+estudiante["escuela"] = "Skillnest"; //Agregar una clave y valor
+console.log(estudiante);
+
+let lista_estudiantes = [
+    {
+        "id": 1234,
+        "nombre": "Elena",
+        "apellido": "De Troya"
+    },
+    {
+        "id": 3456,
+        "nombre": "Juana",
+        "apellido": "De Arco"
+    }
+]
+
+for(let i=0; i<lista_estudiantes.length; i++) {
+    lista_estudiantes[i]['escuela'] = "Escuela"+(i+1);
+}
+
+console.log(lista_estudiantes);
+
+//Crea un programa que en una variable diga el nombre de una persona, y en otra variable la hora del día (mañana, tarde o noche). Imprimir: Buenos días, <nombre>. Buenas tardes, <nombre>. Buenas noches, <nombre>
+let nombre_persona = "Elena";
+let hora_del_dia = "noche"; //mañana, tarde, noche
+//Imprimir: Buenas noches, Elena
+
+//Total de edades. Crea un programa que en base a una lista de personas me imprima el total de las edades
+let personas = [
+    {nombre: "Elena", edad: 20},
+    {nombre: "Juana", edad: 30},
+    {nombre: "Pedro", edad: 21},
+    {nombre: "Pablo", edad: 19}
+]
+
+//Imprimir: sumatoria de edades
+
+//Crea un programa que en base a un listado de estudiantes me imprima quién tiene el mejor promedio de calificaciones
+let estudiantes = [
+    {nombre: "Elena", calificaciones: [90, 85, 100]},
+    {nombre: "Juana", calificaciones: [100, 60, 87]},
+    {nombre: "Pedro", calificaciones: [56, 98, 99]},
+    {nombre: "Pablo", calificaciones: [100, 75, 75]}
+]
+//Imprime el nombre de la persona con mejor promedio y cuál es
+
 
 
