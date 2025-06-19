@@ -31,3 +31,30 @@ elementoImagen.addEventListener("mouseover", function(){
 elementoImagen.addEventListener("mouseout", function(){
     this.src = "img/gatito.jpg";
 });
+
+let botonCambiarTxt = document.querySelector("#btnCambiarTexto");
+botonCambiarTxt.addEventListener("click", function(){
+    //mensaje.textContent = "Mensaje cambiado magicamente";
+    //.querySelector("#entradaTexto");
+    let inputTexto = document.querySelector("input[type='text']");
+    let inputPorId = document.getElementById("entradaTexto");
+
+    mensaje.textContent = inputTexto.value;
+});
+
+let botonEliminar = document.querySelector("#btnEliminar");
+botonEliminar.addEventListener("click", function() {
+    this.remove(); //.remove() eliminamos el elemento
+});
+
+let botonAgregarClase = document.querySelector("#btnClases");
+botonAgregarClase.addEventListener("click", function(){
+    /*
+    mensaje.classList = [
+        "mensaje",
+        "otraClase"
+    ]
+    
+    */
+    mensaje.classList.toggle("resaltado");
+});
