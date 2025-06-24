@@ -23,5 +23,5 @@ $("#prev").click(function(){
 $("#next").click(function(){
     currentIndex = (currentIndex + 1 + images.length) % images.length;
     let src_imagen = $(images[currentIndex]).attr("src");
-    $(".image-modal").attr("src", src_imagen);
+    $('.image-modal').attr("src", src_imagen);
 });
