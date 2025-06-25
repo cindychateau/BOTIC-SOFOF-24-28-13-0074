@@ -1,0 +1,11 @@
+AL INICIAR UN PROYECTO
+    git init
+    git add .
+    git commit -m "Mensaje"
+    git remote add origin url-de-github
+    git push -u origin branch
+
+REALICEMOS CAMBIOS
+    git add .
+    git commit -m "Mensaje"
+    git push -u origin branch
