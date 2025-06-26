@@ -9,3 +9,15 @@ REALICEMOS CAMBIOS
     git add .
     git commit -m "Mensaje"
     git push -u origin branch
+
+BRANCHES
+    git checkout -b nombre-de-tu-rama
+
+MERGE
+    git checkout master
+    git pull origin master
+    git merge nombre-de-tu-rama
+
+ELIMINAR RAMAS
+    git branch -d nombre-de-tu-rama       # Elimina localmente
+    git push origin --delete nombre-de-tu-rama  # Elimina remotamente
