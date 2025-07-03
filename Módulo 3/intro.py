@@ -68,3 +68,6 @@ instructora_fav3 = "Cynthia Castillo"
 celebridades = ["Pedro Pascal", "Kanye West", "Brad Pitt"]
 a, b, c = celebridades
 print(a, b, c)
+
+nombre = input("Ingresa tu nombre completo:")
+print("El nombre que ingresaste fue:", nombre)
