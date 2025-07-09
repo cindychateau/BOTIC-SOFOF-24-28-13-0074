@@ -54,12 +54,17 @@ Estuvo cerca (a 1 número de distancia),
 Falló por mucho.
 *Si conoces sobre bucles, bucle para pedirle el número hasta que lo adivine*
 '''
+# try:
+#     numero = int(input("Dame un número:"))
+# except ValueError:
+#     print("Lo que ingresaste no fue válido")
 
 '''
 MOOD DEL DÍA
 Pide al usuario que ingrese su estado de ánimo (feliz, triste, cansado, emocionado).
 Según la respuesta, muestra un mensaje motivador o divertido.
 '''
+
 
 '''
 3 NUMERITOS
@@ -75,6 +80,31 @@ Si la suma está entre 101 y 200: mostrar "La suma es media."
 Si la suma es 100 o menos: mostrar "La suma es baja."
 En cualquier otro caso (no debería ocurrir, pero por buenas prácticas): mostrar "Caso no contemplado. Misterio sin resolver"
 '''
+num1 = int(input("Ingresa el primer número: "))
+num2 = int(input("Ingresa el segundo número: "))
+num3 = int(input("Ingresa el tercer número: "))
+
+suma = num1 + num2 + num3
+
+if num1 == num2 == num3 == 0: #num1 == 0 and num2 == 0 and num3 == 0
+    print("Todos los números son cero.")
+elif num1 < 0 or num2 < 0 or num3 < 0:
+    print("Tienes al menos un número negativo.")
+elif num1 == num2 == num3 == 100:
+    print("¡Triple 100!")
+elif num1 == num2 == num3: #num1 == num2 and num2 == num3
+    print("Todos los números son iguales.")
+elif suma > 300:
+    print("La suma es ALTISIMA")
+elif suma > 200:
+    print("La suma es alta...")
+elif suma > 100:
+    print("la suma es media")
+elif suma <= 100:
+    print("La suma es baja.")
+else:
+    print("Caso no contemplado. Misterio sin resolver")
+
 
 
 
