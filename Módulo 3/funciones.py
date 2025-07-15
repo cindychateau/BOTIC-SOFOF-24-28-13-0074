@@ -45,3 +45,13 @@ saludito()
 saludito("Juana") #¡Buen día Juana De Troya! ¿cómo va todo? 
 saludito(apellido="De Arco") #¡Buen día Elena De Arco" ¿cómo va todo?
 saludito(apellido="De Arco", nombre="Juana") #¡Buen día Juana de Arco! ¿cómo va todo?
+
+#Función que reciba un lista y que regrese la suma de los valores mayores a 10
+#Ej. [1, 2, 3, 11, 12]. Regresar 23
+
+#Función que reciba un lista y que regrese los dos números mayores
+#Ej. [4, 5, 1, 2, 6]. Regresar (6, 5)
+
+#Función que reciba un lista y reemplace cualquier número negativo por 0. Regresa el lista SIN números negativos. Ej. Recibes: [1,5,10,-2], Regresas [1,5,10,0]
+
+#Función que reciba una lista y un número, y regrese todas las posiciones (índices) donde aparece ese número Ej. recibe ([1, 5, 3, 5, 2, 5], 5) regresa [1, 3, 5]
