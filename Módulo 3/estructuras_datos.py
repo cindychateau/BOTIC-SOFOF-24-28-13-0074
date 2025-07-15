@@ -114,5 +114,36 @@ print(set1.difference(set2)) #en las diferencias vistas desde el primer set -
 print(set2.difference(set1))
 print(set1.difference(set2) | set2.difference(set1)) # Diferencia
 
-for num in set1: #Recorrer cualquier estructura de datos
-    print(num)
+estructura_datos = [200, 150, 300, 350]
+for item in estructura_datos: #item = 350
+    print(item)
+
+for indice in range(len(estructura_datos)):
+    print(indice, estructura_datos[indice])
+
+array_bidimensional = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8]
+]
+
+array_bidimensional[0][3] = 5
+print(array_bidimensional)
+
+maestra = {
+    "nombre": "Cynthia",
+    "apellido": "Castillo",
+    "curso": "Python"
+}
+
+for clave in maestra: #clave = "nombre", "apellido", "curso"
+    print(maestra[clave])
+    #print(clave)
+
+for x in maestra.keys(): #clave
+    print(x)
+
+for u in maestra.values(): #solo valores
+    print(u)
+
+for a, b in maestra.items(): #pares de clave valor
+    print(a, b, sep=" = ")
