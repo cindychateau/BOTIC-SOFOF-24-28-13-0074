@@ -21,4 +21,8 @@ print(miu.energia)
 miu.dormir(2)
 print(miu.energia)
 
+#Encadenamos los 3 métodos
 miu.presentarse().comer("croquetas").dormir(2)
+
+print(Animal.nombre_veterinaria)
+Animal.muestra_animalitos()
