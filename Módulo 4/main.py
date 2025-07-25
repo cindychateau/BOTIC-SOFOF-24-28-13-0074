@@ -1,4 +1,5 @@
 from Animal import Animal #from Archivo import Clase
+from Persona import Persona
 
 firulais = Animal("Firulais", "Perro")
 miu = Animal("Miusita", "Gato", 7)
@@ -26,3 +27,7 @@ miu.presentarse().comer("croquetas").dormir(2)
 
 print(Animal.nombre_veterinaria)
 Animal.muestra_animalitos()
+
+elena = Persona("Elena de Troya", miu)
+
+elena.jugar_con_mascota(2)
