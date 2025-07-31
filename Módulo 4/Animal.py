@@ -2,7 +2,7 @@
 class Animal:
 
     nombre_veterinaria = "Dogtor" #Atributo de Clase
-    lista_animalitos = [] #[firulias, miu]
+    lista_animalitos = [] #[firulias, miu, Garfield, Oddie]
 
     #Función Constructor: Inicializa/crea el objeto.
     #Se ejecuta de manera automática cuando creo el objeto
