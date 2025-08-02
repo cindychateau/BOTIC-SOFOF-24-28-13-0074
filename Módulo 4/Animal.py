@@ -78,3 +78,7 @@ class Animal:
             return "BUENA"
         else:
             return "MEDIA"
+    
+    #Creando un método abstracto
+    def ir_al_baño(self):
+        raise NotImplementedError

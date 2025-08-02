@@ -46,3 +46,6 @@ oddie = Perro("Oddie", 2, "Beagle", "corto", "Woof Woof")
 oddie.olfatear("zapatos").mover_colita()
 
 Animal.muestra_animalitos()
+
+garfield.ir_al_baño()
+oddie.ir_al_baño()

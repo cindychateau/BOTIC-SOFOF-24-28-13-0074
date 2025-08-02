@@ -16,3 +16,6 @@ class Perro(Animal):
         self.presentarse()
         #super().presentarse()
         return self
+    
+    def ir_al_baño(self):
+        print("Sale a pasear, va al baño y su dueño recoge los desechos")
