@@ -87,3 +87,7 @@ try:
         print(palabra)
 except ErrorEspecial as e:
     print(f"Se ha capturado el error: {e}")
+
+
+#Vas a crear un programa que registre usuarios para un sistema, donde se solicitan varios datos personales. Los datos deben ser validados estrictamente y, si hay algún error, el programa debe lanzar y manejar excepciones específicas. *Nombre: Debe contener solo letras y espacios, Si el nombre está vacío o contiene números o símbolos, lanzar ValueError con mensaje específico. *Edad:Debe ser un número entero entre 18 y 120.Si no es un número, lanzar TypeError.Si está fuera del rango, lanzar ValueError. *Correo electrónico: Debe contener un "@" y un "."Si no cumple, lanzar una excepción. *Contraseña: Debe tener al menos 8 caracteres, incluir al menos una mayúscula, una minúscula, un número y un símbolo especial. Si no cumple, lanzar una excepcion. * Teléfono: debe ser un número de 10 dígitos. Si ingresa algo diferente, lanzar ValueError.
+#BONUS: excepcion personalizada InvalidEmailError. excepción personalizada WeakPasswordError. Al final, mostrar un resumen con todos los datos válidos ingresados. permita al usuario intentar de nuevo.
