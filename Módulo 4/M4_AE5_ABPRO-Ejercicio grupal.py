@@ -50,3 +50,130 @@
 #    - Error al reservar una bicicleta ya ocupada.
 #    - Error por fechas inválidas.
 #    - Finalización de reserva y reutilización de la bicicleta.
+from datetime import datetime, timedelta
+import math
+
+# --- Excepciones personalizadas ---
+class BikeUnavailableError(Exception):
+    pass
+
+class InvalidReservationError(Exception):
+    pass
+
+# --- Clase Bike ---
+class Bike:
+    def __init__(self, modelo):
+        self.modelo = modelo
+        self.estado = "disponible"
+
+    def cambiar_estado(self, nuevo_estado: str):
+        if nuevo_estado not in ("disponible", "ocupado"):
+            raise ValueError(f"Estado inválido: {nuevo_estado}")
+        self.estado = nuevo_estado
+    
+    def __str__(self): #Transforma el objeto en texto cuando se necesite imprimir
+        return f"Bike modelo={self.modelo} estado={self.estado}"
+
+class Reservation:
+    TARIFA_POR_HORA = 10
+
+    def __init__(self, bike: Bike, cliente: str, inicio: datetime, fin: datetime):
+        # Validaciones
+        if inicio >= fin:
+            raise InvalidReservationError("La fecha de inicio debe ser anterior a la de fin.")
+
+        if bike.estado != "disponible":
+            raise BikeUnavailableError(f"La bicicleta '{bike.modelo}' no está disponible.")
+
+        self.bike = bike
+        self.cliente = cliente
+        self.inicio = inicio
+        self.fin = fin
+        self.duracion = self.calcular_duracion_en_horas(inicio, fin)
+        self.precio = self.calcular_precio(self.duracion, Reservation.TARIFA_POR_HORA)
+        self.estado = "activa"  # puede ser "activa" o "completada"
+
+        # Al hacer la reserva, se ocupa la bicicleta
+        self.bike.cambiar_estado("ocupado")
+
+    @staticmethod
+    def calcular_duracion_en_horas(inicio, fin):
+        delta = fin - inicio
+        horas = delta.total_seconds() / 3600
+        return horas
+
+    @staticmethod
+    def calcular_precio(horas, tarifa):
+        if horas <= 0:
+            raise InvalidReservationError("Duración inválida para calcular precio.")
+        horas_cobradas = math.ceil(horas)  # cobra por fracción hacia arriba
+        return horas_cobradas * tarifa
+
+    def finalizar(self):
+        if self.estado != "activa":
+            print("La reserva ya fue finalizada.")
+            return
+
+        self.estado = "completada"
+        self.bike.cambiar_estado("disponible")
+        print(f"Reserva de {self.cliente} finalizada. Total a cobrar: {self.precio} unidades.")
+    
+    def __str__(self):
+        return (f"Reservation cliente={self.cliente} bike={self.bike.modelo} "
+                f"inicio={self.inicio.strftime('%Y-%m-%d %H:%M')} fin={self.fin.strftime('%Y-%m-%d %H:%M')} "
+                f"precio={self.precio} estado={self.estado}")
+
+# --- Simulación ---
+def main():
+    print("=== ¡Bienvenido a BikeCity ===\n")
+
+    # 1. Crear una bicicleta
+    bici = Bike("Urbana 2025")
+    print("Bicicleta creada:", bici)
+
+    # 2. Crear una reserva válida
+    try:
+        inicio = datetime.now()
+        fin = inicio + timedelta(hours=1, minutes=30)  # 1.5 horas
+        reserva = Reservation(bici, "Luis", inicio, fin)
+        print("\nReserva creada correctamente:")
+        print(reserva)
+    except (BikeUnavailableError, InvalidReservationError) as e:
+        print("Error al crear reserva:", e)
+    finally:
+        print("Intento de reserva 1 completado.\n")
+
+    try:
+        inicio2 = datetime.now() + timedelta(minutes=10)
+        fin2 = inicio2 + timedelta(hours=1)
+        reserva_conflictiva = Reservation(bici, "Ana", inicio2, fin2)
+    except BikeUnavailableError as e:
+        print("Error esperado al intentar reservar una bicicleta ocupada:", e) 
+    except InvalidReservationError as e:
+        print("Error de fechas:", e)
+    finally:
+        print("Intento de reserva 2 completado.\n")
+    
+    bici2 = Bike("Apache")
+    try:
+        # fin antes de inicio
+        inicio3 = datetime.now() + timedelta(hours=2) #7:34pm
+        fin3 = datetime.now() + timedelta(hours=1) #6:34pm
+        reserva_invalida = Reservation(bici2, "María", inicio3, fin3)
+    except BikeUnavailableError as e:
+        print("Error de disponibilidad:", e)
+    except InvalidReservationError as e:
+        print("Error esperado de fechas inválidas:", e)
+    finally:
+        print("Intento de reserva 3 completado.\n")
+
+    try:
+        reserva.finalizar()
+        print("Estado de la bicicleta después de finalizar:", bici)
+    except Exception as e:
+        print("Error al finalizar:", e)
+    finally:
+        print("Intento de finalización completado.\n")
+
+
+main()
