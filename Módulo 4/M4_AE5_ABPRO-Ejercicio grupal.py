@@ -127,6 +127,15 @@ class Reservation:
 def main():
     print("=== ¡Bienvenido a BikeCity ===\n")
 
+    # while True:
+    #     print("Elige una opcion")
+    #     print("1: Crear Bicicleta")
+    #     print("2: Crear Reservacion")
+    #     print("3: Devolver Bici")
+    #     print("4: Salir")
+    #     respuesta = input("Escribe lo que quieres hacer: ")
+    #     if
+
     # 1. Crear una bicicleta
     bici = Bike("Urbana 2025")
     print("Bicicleta creada:", bici)
