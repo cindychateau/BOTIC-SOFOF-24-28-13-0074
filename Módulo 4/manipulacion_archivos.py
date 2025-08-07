@@ -76,3 +76,18 @@ except IOError:
     print("No se pudo leer/modificar el archivo")
 finally:
     recetario.close()
+
+# EJERCICIO: Recetario Interactivo con Archivos
+# Requerimientos:
+# 1. Toda la información debe guardarse en el archivo "nuevas_recetas.txt"
+# 2. El usuario puede:
+#    - Ver todas las recetas.
+#    - Agregar una nueva receta (se guarda en el archivo).
+#    - Buscar recetas por posición.
+#    - Salir del programa.
+# 3. Se deben utilizar:
+#    - Manejo de archivos con open(), read(), write(), y close().
+#    - Bucles para el menú interactivo.
+#    - Condicionales para controlar las opciones del menú.
+#    - Manejo de excepciones (FileNotFoundError, IOError).
+# 4. Todas las recetas están almacenadas como una receta por línea.
