@@ -1,0 +1,2 @@
+def guardar_animal(animal):
+    #ACCION DE GUARDAR UN ANIMAL ESPECIFICO EN UN ARCHIVO
