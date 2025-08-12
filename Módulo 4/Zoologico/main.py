@@ -1,6 +1,7 @@
 from Animal import Animal
 from Subclases import Leon, Chimpance, Elefante, Pudu
 #from Subclases import *
+from funciones import *
 
 simba = Leon("Simba", 2, "carne")
 jorge_curioso = Chimpance("Jorge", 1, "bananas")
@@ -22,7 +23,13 @@ animales_nuevos = [
     fresia
 ]
 
-for animal in animales_nuevos:
-    guardar_animal(animal)
+#print(f"{simba.__class__.__name__}") -> obtiene el nombre de la clase de un objeto
 
-print("Animales guardados correctamente en el archivo")
+# for animal in animales_nuevos:
+#     guardar_animal(animal)
+
+#print("Animales guardados correctamente en el archivo")
+
+animales = cargar_animales()
+for a in animales:
+    print(f"{a.nombre} ({a.__class__.__name__}, {a.edad} años) - {a.hacer_sonido()} - Come {a.comida_favorita}")

@@ -1,0 +1,8 @@
+Leon,Alex,10,filete
+Leon,Simba,2,carne
+Chimpance,Jorge,1,bananas
+Leon,Nala,2,carne
+Elefante,Dumbo,1,cacahuates
+Pudu,Bambi,3,hojas
+Pudu,Pudin,2,hojas
+Elefante,Fresia,51,cacahuates
