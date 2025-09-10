@@ -1,0 +1,29 @@
+python -m venv venv #Crear el entorno virtual Windows
+python3 -m venv venv #Crear el entorno virtual Mac
+
+.\venv\Scripts\activate #Activar el entorno virtual En Windows
+source venv/bin/activate #Activar el entorno virtual En Mac o Linux
+#En caso de que te marque error en Windows, ejecutamos el siguiente comando:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+pip install nombre-paquete #Instalar Windows
+pip3 install nombre-paquete #Instalar en Mac
+
+pip uninstall nombre-paquete #Windows
+pip3 uninstall nombre-paquete #Mac
+
+#Si te aparece error al ejecutar la instalación
+python -m pip install nombre-paquete #Windows
+python3 -m pip3 install nombre-paquete #Mac
+
+pip list #Da una lista con todas las librerías instaladas
+pip3 list
+
+#Crear un archivo requirements.txt que tenga todo lo instalado
+#Cuando voy a desplegar o tener la carpeta del proyecto en otro lugar, necesito saber cuáles son lo requerimientos
+pip freeze > requirements.txt #Windows
+pip3 freeze > requirements.txt #Mac
+
+#Instalar todo lo que tengo en requirements
+pip install -r requirements.txt
+pip3 install -r requirements.txt
