@@ -1,0 +1,15 @@
+#Creado y activado el entorno virtual
+#Instalación
+pip install django #Windows
+pip3 install django #Mac
+
+#Creación de proyecto
+django-admin startproject nombre_proyecto .
+
+#Creación de aplicación
+python manage.py startapp nombre_app
+python3 manage.py startapp nombre_app
+
+#Ejecución del servidor
+python manage.py runserver
+python manage.py runserver 8080

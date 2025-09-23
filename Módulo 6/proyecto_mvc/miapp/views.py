@@ -6,3 +6,18 @@ from django.http import HttpResponse #Importo para mostrar una respuesta de http
 
 def funcion_prueba(request):
     return HttpResponse("¡Hola desde miapp!")
+
+def hola(request, nombre):
+    print(nombre)
+    return HttpResponse(f"<h1>¡Hola {nombre}!</h1>")
+
+#nombre = Elena, cantidad = 5
+def hola_repetido(request, nombre, cantidad):
+    respuesta = ''
+    for i in range(cantidad):
+        respuesta += f"<h2>¡Holis {nombre}!</h2>"
+    
+    return HttpResponse(respuesta)
+
+def home(request):
+    return render(request, 'home.html')
