@@ -23,4 +23,6 @@ urlpatterns = [
 ]
 
 #http://127.0.0.1:8000/miapp/prueba
-#http://127.0.0.1:8000/miapp/holis
+#http://127.0.0.1:8000/miapp/hola/Cynthia
+#http://127.0.0.1:8000/miapp/hola/Cynthia/4
+#http://127.0.0.1:8000/miapp/ -> home

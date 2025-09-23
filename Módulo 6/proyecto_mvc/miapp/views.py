@@ -21,3 +21,15 @@ def hola_repetido(request, nombre, cantidad):
 
 def home(request):
     return render(request, 'home.html')
+
+def calculadora(request, num1, num2, operacion):
+    operacion = operacion.lower()
+    resultado = 0
+    if operacion == "suma":
+        resultado = num1 + num2
+    elif operacion == "resta":
+        resultado = num1 - num2
+    else:
+        resultado = "Operación inválida"
+    
+    return HttpResponse(resultado)
