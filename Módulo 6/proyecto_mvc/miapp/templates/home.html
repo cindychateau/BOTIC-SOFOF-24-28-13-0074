@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Django</title>
-</head>
-<body>
-    <h1>¡Hola desde la plantilla de mi app!</h1>
-    <p>Bienvenidos todos, disfrutemos Django</p>
-</body>
-</html>
+{% extends 'base.html' %} <!-- Hereda del archivo base.html -->
+
+{% block title %}Home - Mi primera app de Django{% endblock %}
+
+{% block content %}
+<h1>¡Bienvenido a tu primera app de Django</h1>
+<p>Ya estamos mostrando contenido desde una plantilla y con herencia</p>
+{% endblock %}

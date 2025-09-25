@@ -7,7 +7,8 @@ urlpatterns = [
     path('hola/<str:nombre>/', views.hola, name="hola"),
     path('hola/<str:nombre>/<int:cantidad>/', views.hola_repetido, name="hola_repetido"),
     path('', views.home, name='home'),
-    path('calculadora/<int:num1>/<int:num2>/<str:operacion>/', views.calculadora,name="calculadora")
+    path('calculadora/<int:num1>/<int:num2>/<str:operacion>/', views.calculadora,name="calculadora"),
+    path('contacto/', views.contacto, name="contacto"),
 ]
 
 #http://127.0.0.1:8000/miapp/hola/alguntexto

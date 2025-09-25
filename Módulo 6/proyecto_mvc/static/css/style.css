@@ -1,0 +1,12 @@
+/*CSS RESET*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/*Crear una clase llamada titulo_principal que tenga la letra grande y mi color favorito como color de letra*/
+.titulo_principal {
+    font-size: 50px;
+    color: sienna;
+}

@@ -33,3 +33,6 @@ def calculadora(request, num1, num2, operacion):
         resultado = "Operación inválida"
     
     return HttpResponse(resultado)
+
+def contacto(request):
+    return render(request, 'contacto.html')
