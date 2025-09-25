@@ -20,7 +20,16 @@ def hola_repetido(request, nombre, cantidad):
     return HttpResponse(respuesta)
 
 def home(request):
-    return render(request, 'home.html')
+    #Diccionario con la información de 1 usuario. nombre, apellido, edad
+    usuario = {
+        "nombre": "Elena",
+        "apellido": "De Troya",
+        "edad": 25
+    }
+
+    nombre = "Elena De Troya"
+
+    return render(request, 'home.html', {"nombreCompleto": nombre, "usuario": usuario}) #Enviamos a nuestro HTML. SIEMPRE debe tener formato de diccionario
 
 def calculadora(request, num1, num2, operacion):
     operacion = operacion.lower()
@@ -36,3 +45,12 @@ def calculadora(request, num1, num2, operacion):
 
 def contacto(request):
     return render(request, 'contacto.html')
+
+def estudiantes(request):
+    estudiantes = [
+        {"nombre": "Elena de Troya", "curso": "Java"},
+        {"nombre": "Juana de Arco", "curso": "Python"},
+        {"nombre": "Pablo Picasso", "curso": "MERN"},
+        {"nombre": "Pedro Páramo", "curso": "Fundamentos de la Web"}
+    ]
+    return render(request, 'estudiantes.html', {"estudiantes":estudiantes})

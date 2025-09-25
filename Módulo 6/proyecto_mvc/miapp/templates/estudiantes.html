@@ -1,0 +1,24 @@
+{% extends 'base.html' %} <!-- Hereda del archivo base.html -->
+
+{% block title %}Estudiantes{% endblock %}
+
+{% block content %}
+
+<h1>Lista de Estudiantes</h1>
+<ul>
+    <!--
+    estudiantes = [
+        {"nombre": "Elena de Troya", "curso": "Java"},
+        {"nombre": "Juana de Arco", "curso": "Python"},
+        {"nombre": "Pablo Picasso", "curso": "MERN"},
+        {"nombre": "Pedro Páramo", "curso": "Fundamentos de la Web"}
+    ]
+    estudiante = {"nombre": "Elena de Troya", "curso": "Java"}
+    estudiante = {"nombre": "Juana de Arco", "curso": "Python"}
+    -->
+    {% for estudiante in estudiantes %}
+        <li>{{ estudiante.nombre|upper }} - {{ estudiante.curso }} {% if estudiante.curso|upper == "PYTHON" %}<span class="text-primary">¡LA MEJOR CLASE!</span> {% endif %}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('calculadora/<int:num1>/<int:num2>/<str:operacion>/', views.calculadora,name="calculadora"),
     path('contacto/', views.contacto, name="contacto"),
+    path('estudiantes/', views.estudiantes, name="estudiantes"),
 ]
 
 #http://127.0.0.1:8000/miapp/hola/alguntexto
