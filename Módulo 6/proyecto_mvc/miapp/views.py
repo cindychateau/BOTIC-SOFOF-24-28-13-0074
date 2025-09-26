@@ -65,3 +65,20 @@ def productos(request):
     ]
     contexto = {"productos": productos}
     return render(request, 'productos.html', contexto)
+
+def producto(request, indice): #indice = 0
+    productos = [
+        Producto(nombre="Chocolate", descripcion="El chocolate más delicioso del mundo", precio=1.99, fecha_creacion="2025-09-27", disponible=True),
+        Producto(nombre="Completo", descripcion="Contiene: vienesa, palta, tomate, mayonesa casera", precio=1.50, fecha_creacion="2025-09-27", disponible=False),
+        Producto(nombre="Galletas", descripcion="Galletas de Chocolate tipo oreo", precio=0.70, fecha_creacion="2025-09-27", disponible=True),
+        Producto(nombre="Helado", descripcion="Sabores disponibles: Vainilla, Chocolate, Frutilla, Napolitano", precio=2.50, fecha_creacion="2025-09-27", disponible=False)
+    ]
+    
+    try:
+        producto = productos[indice] #Obtengo el producto en base al indice
+    except IndexError:
+        producto = None
+        print("Producto no existe")
+    contexto = {"producto": producto}
+    return render(request, 'producto.html', contexto)
+    

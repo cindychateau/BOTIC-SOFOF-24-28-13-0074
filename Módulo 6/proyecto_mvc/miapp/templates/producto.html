@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Producto{% endblock %}
+
+{% block content %}
+
+{% if producto %} <!--Revisa que la variable no esté vacía-->
+    <h1 class="mt-4">{{ producto.nombre }}</h1>
+    <h6>${{ producto.precio }}</h6>
+    <p>{{ producto.descripcion }}</p>
+    <small>{{ producto.fecha_creacion }}</small>
+    {% if producto.disponible %}
+        <span class="badge text-bg-success">Disponible</span>
+    {% else %}
+        <span class="badge text-bg-danger">No Disponible</span>
+    {% endif %}
+{% else %}
+    <h1 class="bg-danger">El producto NO EXISTE</h1>
+{% endif %}
+
+{% endblock %}
