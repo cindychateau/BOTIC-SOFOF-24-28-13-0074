@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block content %}
+<h2 class="mt-4 mb-4">Listado de Productos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Disponibilidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+            <tr>
+                <td>{{ producto.nombre|upper }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>
+                    {% if producto.disponible %}
+                        <span class="badge text-bg-success">Disponible</span>
+                    {% else %}
+                        <span class="badge text-bg-danger">No Disponible</span>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render #Muestra una plantilla de HTML
 from django.http import HttpResponse #Importo para mostrar una respuesta de http
+from .models import Producto #Importando la clase Producto del archivo models
 
 # Create your views here.
 #Funciones que definen qué mostrar al usuario
@@ -54,3 +55,13 @@ def estudiantes(request):
         {"nombre": "Pedro Páramo", "curso": "Fundamentos de la Web"}
     ]
     return render(request, 'estudiantes.html', {"estudiantes":estudiantes})
+
+def productos(request):
+    productos = [
+        Producto(nombre="Chocolate", descripcion="El chocolate más delicioso del mundo", precio=1.99, fecha_creacion="2025-09-27", disponible=True),
+        Producto(nombre="Completo", descripcion="Contiene: vienesa, palta, tomate, mayonesa casera", precio=1.50, fecha_creacion="2025-09-27", disponible=False),
+        Producto(nombre="Galletas", descripcion="Galletas de Chocolate tipo oreo", precio=0.70, fecha_creacion="2025-09-27", disponible=True),
+        Producto(nombre="Helado", descripcion="Sabores disponibles: Vainilla, Chocolate, Frutilla, Napolitano", precio=2.50, fecha_creacion="2025-09-27", disponible=False)
+    ]
+    contexto = {"productos": productos}
+    return render(request, 'productos.html', contexto)
