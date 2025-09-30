@@ -6,8 +6,12 @@
 
 <h1>Contáctanos</h1>
 <div class="mt-3">
-    <input type="text" class="form-control" placeholder="Ingresa tu email">
-    <button class="btn btn-success">Enviar</button>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Mostrar el formulario con etiquetas p por cada campo-->
+        {{ formulario.as_p }} 
+        <button type="submit" class="btn btn-success">Enviar Formulario</button>
+    </form>
 </div>
 
 {% endblock %}

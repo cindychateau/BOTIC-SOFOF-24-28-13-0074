@@ -1,6 +1,7 @@
 from django.shortcuts import render #Muestra una plantilla de HTML
 from django.http import HttpResponse #Importo para mostrar una respuesta de http
 from .models import Producto #Importando la clase Producto del archivo models
+from .formularios import FormularioDeContacto, FormularioDeSubscripcion #Importando la clase FormularioDeContacto del archivo formularios
 
 # Create your views here.
 #Funciones que definen qué mostrar al usuario
@@ -45,7 +46,11 @@ def calculadora(request, num1, num2, operacion):
     return HttpResponse(resultado)
 
 def contacto(request):
-    return render(request, 'contacto.html')
+    #Detectar el tipo de petición
+    #Recibir la información del formulario
+    #Revisar que los datos sean válidos, SI NO mostrar un error
+    formulario = FormularioDeContacto()
+    return render(request, 'contacto.html', {'formulario': formulario})
 
 def estudiantes(request):
     estudiantes = [
