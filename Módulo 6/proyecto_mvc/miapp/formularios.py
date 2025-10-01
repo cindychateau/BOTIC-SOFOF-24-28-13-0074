@@ -1,6 +1,7 @@
 from django import forms
 
 class FormularioDeContacto(forms.Form):
+    #Cada atributo se traduce como un campo/input en el form
     nombre = forms.CharField(label="Escribe tu nombre", max_length=100, widget=forms.TextInput(attrs={"class": "form-control"}))
     email = forms.EmailField(label="Escribe tu correo electrónico", widget=forms.EmailInput(attrs={"class": "form-control"}))
     asunto = forms.CharField(label="Escribe el asunto", required=False, max_length=15, widget=forms.TextInput(attrs={"class": "form-control"}))

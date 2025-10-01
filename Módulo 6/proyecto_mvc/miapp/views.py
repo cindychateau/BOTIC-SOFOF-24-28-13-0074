@@ -1,4 +1,4 @@
-from django.shortcuts import render #Muestra una plantilla de HTML
+from django.shortcuts import render, redirect #Muestra una plantilla de HTML
 from django.http import HttpResponse #Importo para mostrar una respuesta de http
 from .models import Producto #Importando la clase Producto del archivo models
 from .formularios import FormularioDeContacto, FormularioDeSubscripcion #Importando la clase FormularioDeContacto del archivo formularios
@@ -47,10 +47,36 @@ def calculadora(request, num1, num2, operacion):
 
 def contacto(request):
     #Detectar el tipo de petición
-    #Recibir la información del formulario
-    #Revisar que los datos sean válidos, SI NO mostrar un error
-    formulario = FormularioDeContacto()
-    return render(request, 'contacto.html', {'formulario': formulario})
+    if request.method == 'POST':
+        #Recibir la información del formulario
+        formulario = FormularioDeContacto(request.POST)
+        #Revisar que los datos sean válidos
+        if formulario.is_valid():
+            #Procesar los datos
+            #Cleaned Data: regresar la info sin espacio y con tipo de dato correcto
+            nombre = formulario.cleaned_data['nombre']
+            email = formulario.cleaned_data['email']
+            asunto = formulario.cleaned_data['asunto']
+            mensaje = formulario.cleaned_data['mensaje']
+            subscripcion = formulario.cleaned_data['subscripcion']
+
+            #Acción que quieres hacer con esos datos
+            print("=======INFORMACION DEL FORMULARIO=======")
+            print(nombre, email, asunto, mensaje, subscripcion)
+
+            #redirección: 1.- Tenga una ruta definida
+            #2.- función en vistas
+            return redirect('contacto_exito') #Cambia la URL, voy a una nueva ruta
+
+        else: #De lo contrario mostrar error
+            return render(request, 'contacto.html', {'formulario': formulario})
+
+    else: #Petición de tipo get
+        formulario = FormularioDeContacto()
+        return render(request, 'contacto.html', {'formulario': formulario})
+
+def contacto_exito(request):
+    return render(request, 'contacto_exito.html')
 
 def estudiantes(request):
     estudiantes = [

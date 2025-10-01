@@ -12,6 +12,7 @@ urlpatterns = [
     path('estudiantes/', views.estudiantes, name="estudiantes"),
     path('productos/', views.productos, name="productos"),
     path('productos/<int:indice>', views.producto, name="producto"),
+    path('contacto_exito/', views.contacto_exito, name="contacto_exito"),
 ]
 
 #http://127.0.0.1:8000/miapp/hola/alguntexto
