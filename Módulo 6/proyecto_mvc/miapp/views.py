@@ -3,6 +3,10 @@ from django.http import HttpResponse #Importo para mostrar una respuesta de http
 from .models import Producto #Importando la clase Producto del archivo models
 from .formularios import FormularioDeContacto, FormularioDeSubscripcion #Importando la clase FormularioDeContacto del archivo formularios
 
+#Modelo auth
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 #Funciones que definen qué mostrar al usuario
 
@@ -113,3 +117,12 @@ def producto(request, indice): #indice = 0
     contexto = {"producto": producto}
     return render(request, 'producto.html', contexto)
     
+def login_view(request):
+    #Todo: Revisar qué tipo de método tenemos en la petición
+    #Todo: autenticar al usuario
+    #Todo: iniciar sesión
+    return render(request, 'login.html')
+
+def logout_view(request):
+    logout(request) #Función que está hecho de Modelo auth que elimina la sesión actual
+    return redirect('login')
