@@ -5,7 +5,7 @@ from .formularios import FormularioDeContacto, FormularioDeSubscripcion #Importa
 
 #Modelo auth
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
 #Funciones que definen qué mostrar al usuario
@@ -92,6 +92,8 @@ def estudiantes(request):
     ]
     return render(request, 'estudiantes.html', {"estudiantes":estudiantes})
 
+@login_required
+@permission_required('miapp.view_producto', raise_exception=True)
 def productos(request):
     productos = [
         Producto(nombre="Chocolate", descripcion="El chocolate más delicioso del mundo", precio=1.99, fecha_creacion="2025-09-27", disponible=True),

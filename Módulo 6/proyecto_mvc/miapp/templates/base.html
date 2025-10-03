@@ -28,6 +28,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'prueba' %}">Prueba</a>
                     </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link text-danger" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link text-success" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

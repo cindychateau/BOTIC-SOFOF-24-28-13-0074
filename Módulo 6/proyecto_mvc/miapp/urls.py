@@ -1,6 +1,7 @@
 #Definimos las rutas de la aplicación
 from django.urls import path #Importo path, para generar una ruta
 from . import views #Importo views, en base a una ruta mostrar una vista
+from django.contrib.auth import views as auth_views #Vistas pre-creadas que Django tiene para que yo utilice
 
 urlpatterns = [
     path('prueba/', views.funcion_prueba, name='prueba'),
@@ -14,6 +15,7 @@ urlpatterns = [
     path('productos/<int:indice>', views.producto, name="producto"),
     path('contacto_exito/', views.contacto_exito, name="contacto_exito"),
     path('login/', views.login_view, name="login"),
+    #path('login/', auth_views.LoginView.as_view(), name="login"),
     path('logout/', views.logout_view, name="logout"),
 ]
 

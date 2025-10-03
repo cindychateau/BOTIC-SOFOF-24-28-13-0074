@@ -3,7 +3,7 @@
 {% block title %}Home - Mi primera app de Django{% endblock %}
 
 {% block content %}
-<h1>¡Bienvenido a tu primera app de Django</h1>
+<h1>¡Bienvenido a tu primera app de Django, {{user.username}}!</h1>
 <p>Ya estamos mostrando contenido desde una plantilla y con herencia</p>
 <h2>El usuario que ingresó es: {{ usuario.nombre }} {{usuario.apellido}}</h2>
 <h3>Su nombre completo es: {{ nombreCompleto }}</h3>
