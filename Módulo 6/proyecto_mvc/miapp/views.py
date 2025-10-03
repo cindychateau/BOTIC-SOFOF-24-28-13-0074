@@ -25,6 +25,7 @@ def hola_repetido(request, nombre, cantidad):
     
     return HttpResponse(respuesta)
 
+@login_required
 def home(request):
     #Diccionario con la información de 1 usuario. nombre, apellido, edad
     usuario = {
@@ -118,9 +119,19 @@ def producto(request, indice): #indice = 0
     return render(request, 'producto.html', contexto)
     
 def login_view(request):
-    #Todo: Revisar qué tipo de método tenemos en la petición
-    #Todo: autenticar al usuario
-    #Todo: iniciar sesión
+    #Revisar qué tipo de método tenemos en la petición
+    if request.method == 'POST': #Significa que estamos recibiendo la información del formulario
+        username = request.POST['username']
+        password = request.POST['password']
+        #autenticar al usuario
+        usuario = authenticate(request, username=username, password=password) #usuario = None X
+        if usuario is not None:
+            #inicio sesión
+            login(request, usuario) #Guardo en sesión la información del usuario
+            return redirect('home')
+        else:
+            return render(request, 'login.html', {'error': 'Credenciales inválidas'})
+
     return render(request, 'login.html')
 
 def logout_view(request):

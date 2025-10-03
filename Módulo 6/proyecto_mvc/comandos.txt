@@ -13,3 +13,12 @@ python3 manage.py startapp nombre_app
 #Ejecución del servidor
 python manage.py runserver
 python manage.py runserver 8080
+
+#Genera las migraciones (Crea archivos de migración en base a modelos)
+python manage.py makemigrations
+
+#Aplica las migraciones (Crear las tablas, todo lo que tiene que ver con autenticación)
+python manage.py migrate
+
+#Para entrar al shell de Django
+python manage.py shell
