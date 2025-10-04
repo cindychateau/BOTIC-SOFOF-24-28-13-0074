@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Posts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Todas las publicaciones</h1>
+        <ul>
+            {% for post in object_list %}
+                <li>{{post.titulo}} - {{post.autor.username}}</li>
+            {% empty %}
+                <li>No hay posts</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

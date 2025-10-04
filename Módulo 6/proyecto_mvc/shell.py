@@ -9,3 +9,17 @@ permission = Permission.objects.get(codename='view_producto', content_type=conte
 
 user = User.objects.create_user('cliente2', password='contrasena123')
 user.user_permissions.add(permission)
+
+########################################################################################
+from django.contrib.auth.models import User, Permission
+from blog.models import Post
+
+user1 = User.objects.create_user(username="elena", password="1234")
+user2 = User.objects.create_user(username="juana", password="1234")
+
+perm = Permission.objects.get(codename="change_post")  # permiso autogenerado por Django
+user1.user_permissions.add(perm)
+
+Post.objects.create(titulo="Primer post de Elena", contenido="Contenido del post de Elena", autor=user1)
+Post.objects.create(titulo="Segundo post de Elena", contenido="Otro texto de Elena", autor=user1)
+Post.objects.create(titulo="Post de Juana", contenido="Texto escrito por Juana", autor=user2)

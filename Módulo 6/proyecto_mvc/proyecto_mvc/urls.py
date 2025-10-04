@@ -20,6 +20,7 @@ from django.urls import path, include #permite incluír URLs generadas en apps
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('miapp/', include('miapp.urls')), #Incluyendo todas las rutas que generamos en la app
+    path('blog/', include('blog.urls'))
 ]
 
 #http://127.0.0.1:8000/miapp/prueba
