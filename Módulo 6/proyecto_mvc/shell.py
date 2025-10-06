@@ -23,3 +23,13 @@ user1.user_permissions.add(perm)
 Post.objects.create(titulo="Primer post de Elena", contenido="Contenido del post de Elena", autor=user1)
 Post.objects.create(titulo="Segundo post de Elena", contenido="Otro texto de Elena", autor=user1)
 Post.objects.create(titulo="Post de Juana", contenido="Texto escrito por Juana", autor=user2)
+
+########################################################################################
+
+from django.contrib.auth.models import User, Permission
+from blog.models import Post
+
+user = User.objects.get(username='elena')
+
+perm = Permission.objects.get(codename="ver_posts_exclusivos")
+user.user_permissions.add(perm)

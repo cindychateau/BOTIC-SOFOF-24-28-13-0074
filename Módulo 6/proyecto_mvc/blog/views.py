@@ -1,7 +1,7 @@
 from django.shortcuts import render
 #TemplateView : mostrar una plantilla
 #ListView: muestra un listado de un model
-from django.views.generic import ListView, TemplateView 
+from django.views.generic import ListView, TemplateView #CreateView, #UpdateView, #DeleteView
 from .models import Post
 
 #LoginRequiredMixin: inicio de sesión requerido = @login_required
@@ -28,3 +28,8 @@ class MisPosts(LoginRequiredMixin, ListView):
 class EditarPost(PermissionRequiredMixin, TemplateView):
     template_name = 'editar_post.html'
     permission_required = 'blog.change_post'
+
+#Privada + Permisos: ver_posts_exclusivos
+class PostsExclusivos(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
+    template_name = "posts_exclusivos.html"
+    permission_required = "blog.ver_posts_exclusivos"
