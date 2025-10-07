@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 #TemplateView : mostrar una plantilla
 #ListView: muestra un listado de un model
 from django.views.generic import ListView, TemplateView #CreateView, #UpdateView, #DeleteView
@@ -29,7 +29,19 @@ class EditarPost(PermissionRequiredMixin, TemplateView):
     template_name = 'editar_post.html'
     permission_required = 'blog.change_post'
 
+    #Función para personalizar la página de 403 Forbiden
+    def handle_no_permission(self):
+        return redirect('pagina_prohibida')
+
 #Privada + Permisos: ver_posts_exclusivos
 class PostsExclusivos(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
     template_name = "posts_exclusivos.html"
-    permission_required = "blog.ver_posts_exclusivos"
+    permission_required = "blog.ver_posts_exclusivos" #view_post_exclusivos
+
+    #Función para personalizar la página de 403 Forbiden
+    def handle_no_permission(self):
+        return redirect('pagina_prohibida')
+
+
+class PaginaProhibida(TemplateView):
+    template_name = "pagina_prohibida.html"

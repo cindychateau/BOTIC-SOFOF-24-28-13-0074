@@ -12,5 +12,5 @@ class Post(models.Model):
     class Meta:
         #Creando permisos adicionales
         permissions = [
-            ("ver_posts_exclusivos", "Ver publicaciones exclusivas")
+            ("ver_posts_exclusivos", "Ver publicaciones exclusivas") #(codigo_permiso, nombre visible)
         ]

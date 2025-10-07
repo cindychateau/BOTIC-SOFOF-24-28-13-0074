@@ -6,4 +6,5 @@ urlpatterns = [
     path('mis-posts/', MisPosts.as_view(), name="mis_posts"), #privada, solo aquellos que iniciaron sesión
     path('editar/', EditarPost.as_view(), name="editar_post"), #privada y con permisos
     path('posts-exclusivos/', PostsExclusivos.as_view(), name="posts_exclusivos"),
+    path('pagina-prohibida/', PaginaProhibida.as_view(), name="pagina_prohibida"),
 ]
