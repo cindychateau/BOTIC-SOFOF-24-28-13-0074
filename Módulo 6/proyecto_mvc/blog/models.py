@@ -9,6 +9,9 @@ class Post(models.Model):
     autor = models.ForeignKey(User, on_delete=models.CASCADE) #Relación con User
     #exclusivo = models.BooleanField etc etc
 
+    def __str__(self):
+        return self.titulo
+
     class Meta:
         #Creando permisos adicionales
         permissions = [

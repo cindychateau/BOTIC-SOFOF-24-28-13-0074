@@ -22,3 +22,9 @@ python manage.py migrate
 
 #Para entrar al shell de Django
 python manage.py shell
+
+#Para crear un super usuario (admin)
+python manage.py createsuperuser
+
+#Para cambiar la contraseña de un usuario
+python manage.py changepassword nombreusuario 
