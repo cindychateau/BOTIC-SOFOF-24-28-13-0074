@@ -14,7 +14,14 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Todo: Recorrer y mostrar todas las mascotas -->
+            <!-- Recorrer y mostrar todas las mascotas -->
+            {% for mascota in mascotas %}
+                <tr>
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.especie }}</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

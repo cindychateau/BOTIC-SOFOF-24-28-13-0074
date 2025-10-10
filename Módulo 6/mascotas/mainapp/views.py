@@ -20,3 +20,23 @@ def home(request):
     #Todo: filtrar las del usuario en sesión
     #Enviar contexto (mascotas)
     return render(request, 'home.html', {'mascotas': MASCOTAS})
+
+def login_view(request):
+    #Revisar qué tipo de método tenemos en la petición
+    if request.method == 'POST': #Significa que estamos recibiendo la información del formulario
+        username = request.POST['username']
+        password = request.POST['password']
+        #autenticar al usuario
+        usuario = authenticate(request, username=username, password=password) #usuario = None X
+        if usuario is not None:
+            #inicio sesión
+            login(request, usuario) #Guardo en sesión la información del usuario
+            return redirect('home')
+        else:
+            return render(request, 'login.html', {'error': 'Credenciales inválidas'})
+
+    return render(request, 'login.html')
+
+def logout_view(request):
+    logout(request) #Función que está hecho de Modelo auth que elimina la sesión actual
+    return redirect('login')
