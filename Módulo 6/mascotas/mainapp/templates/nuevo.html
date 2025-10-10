@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Nueva Mascota{% endblock %}
+
+{% block content %}
+
+<div class="container pt-3">
+    <h1>Nueva Mascota</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ formulario.as_p }} <!-- Mostrano el formulario a través de etiquetas p -->
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -122,6 +122,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# LOGIN_URL = 'login'
-# LOGIN_REDIRECT_URL = 'home' #Pero si dejas que Django maneje el flujo (django.contrib.auth.views.LoginView), te redirigirá ahí automáticamente si no le pasas next.
-# LOGOUT_REDIRECT_URL = 'login' #Django mismo los usa en otros lugares (ej. @login_required o cuando alguien accede a una vista protegida).
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home' #Pero si dejas que Django maneje el flujo (django.contrib.auth.views.LoginView), te redirigirá ahí automáticamente si no le pasas next.
+LOGOUT_REDIRECT_URL = 'login' #Django mismo los usa en otros lugares (ej. @login_required o cuando alguien accede a una vista protegida).
