@@ -82,6 +82,8 @@ def crear(request):
 
     return render(request, 'nuevo.html', {'formulario': formulario})
 
+@login_required
+@permission_required('mainapp.change_mascota', raise_exception=True)
 def editar(request, nombre):
     try: #condicion ? opcion a : opcion b
         mascota = [m for m in MASCOTAS if m.nombre == nombre][0] #Miu, edad = 8, especie = gato, descripcion= peludita
@@ -103,4 +105,32 @@ def editar(request, nombre):
     contexto = {"nombre": nombre, 'formulario': formulario}
     return render(request, 'editar.html', contexto)
 
+@login_required
+@permission_required('mainapp.view_mascota', raise_exception=True)
+def detalle(request, nombre):
+    try: #condicion ? opcion a : opcion b
+        mascota = [m for m in MASCOTAS if m.nombre == nombre][0]
+    except IndexError:
+        mascota = None
+        print("La mascota no existe") #Mostremos una página de error
+    
+    return render(request, 'mascota.html', {"mascota": mascota})
 
+@login_required
+@permission_required('mainapp.delete_mascota', raise_exception=True)
+def borrar(request, nombre):
+    global MASCOTAS
+    '''
+    MASCOTAS = []
+    for mascota in MASCOTAS:
+        #Aquella mascota que coincida en nombre y YO sea el dueño
+        if not(mascota.nombre == nombre and mascota.dueno == request.user):
+            MASCOTAS.append(mascota)
+    '''
+    MASCOTAS = [mascota for mascota in MASCOTAS if not(mascota.nombre == nombre and mascota.dueno == request.user)]
+    return redirect('home')
+
+@login_required
+@permission_required('mainapp.view_all_mascota', raise_exception=True)
+def todas(request):
+    return render(request, 'todas.html', {'mascotas': MASCOTAS})

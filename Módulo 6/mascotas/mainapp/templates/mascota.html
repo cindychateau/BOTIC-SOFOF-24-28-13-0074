@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Mascota - Detalle{% endblock %}
+
+{% block content %}
+<div class="container pt-3">
+    <h1>{{ mascota.nombre }}</h1>
+    <h2>Edad: {{mascota.edad}}</h2>
+    <h2>Especie: {{mascota.especie}}</h2>
+    <h2>Descripción: {{mascota.descripcion}}</h2>
+</div>
+{% endblock %}
