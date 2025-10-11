@@ -13,14 +13,15 @@ elena = User.objects.get(username='elena')
 juana = User.objects.get(username='juana')
 #Lista de mascotas
 MASCOTAS = [
-    Mascota(nombre = "Miu", edad = 8, especie = "Gato", descripcion = "Gatita peluda color blanca", dueno = elena),
-    Mascota(nombre = "Michi", edad = 4, especie = "Gato", descripcion = "Gatita calico muy traviesa", dueno = juana),
+    Mascota(nombre = "Miu", edad = 8, especie = "Gato", descripcion = "Gatita peluda color blanca", dueno = elena), #0
+    Mascota(nombre = "Michi", edad = 4, especie = "Gato", descripcion = "Gatita calico muy traviesa", dueno = juana), #1
 ]
 
 @login_required
 def home(request):
     #Filtrar las mascotas del usuario en sesión
     '''
+    SELECT * FROM mascotas WHERE dueno = usuario.sesion
     mis_mascotas = Mascota.objects.get(dueno=request.user) -> conexión bd
     mis_mascotas = []
     for mascota in MASCOTAS:
@@ -80,4 +81,26 @@ def crear(request):
             return redirect('home')
 
     return render(request, 'nuevo.html', {'formulario': formulario})
+
+def editar(request, nombre):
+    try: #condicion ? opcion a : opcion b
+        mascota = [m for m in MASCOTAS if m.nombre == nombre][0] #Miu, edad = 8, especie = gato, descripcion= peludita
+
+        if request.method == 'POST':
+            formulario = MascotaForm(request.POST)
+            if formulario.is_valid():
+                mascota.nombre = formulario.cleaned_data['nombre']
+                mascota.edad = formulario.cleaned_data['edad']
+                mascota.especie = formulario.cleaned_data['especie']
+                mascota.descripcion = formulario.cleaned_data['descripcion']
+                return redirect('home')
+        else:
+            formulario = MascotaForm(initial={"nombre": mascota.nombre, "edad": mascota.edad, "especie": mascota.especie, "descripcion": mascota.descripcion})
+
+    except IndexError:
+        mascota = None
+        print("La mascota no existe") #Mostremos una página de error
+    contexto = {"nombre": nombre, 'formulario': formulario}
+    return render(request, 'editar.html', contexto)
+
 

@@ -19,7 +19,9 @@
                 <tr>
                     <td>{{ mascota.nombre }}</td>
                     <td>{{ mascota.especie }}</td>
-                    <td></td>
+                    <td>
+                        <a href="{% url 'editar' mascota.nombre %}" class="btn btn-warning">Editar</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

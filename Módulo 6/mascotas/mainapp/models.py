@@ -16,3 +16,13 @@ class Mascota(models.Model):
         permissions = [
             ("view_all_mascota", "Ver todas las mascotas"), #(codigo_permiso, "Nombre Visible")
         ]
+
+'''
+mascotas = Mascota.objects.all()
+mascotas = Mascota.objects.filter(edad__gt=5) -> greater than
+mascotas = Mascota.objects.order_by('-edad') -> descendente
+mascota = Mascota.objects.get(nombre='Michi')
+mascota.edad = 5
+mascota.save() -> guardar un nuevo registro, guardar un cambio de un registro que ya existe
+mascota.delete() -> borra registro
+'''
