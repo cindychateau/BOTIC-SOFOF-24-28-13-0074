@@ -1,0 +1,39 @@
+#Crear entorno virtual
+python -m venv venv #Crear el entorno virtual Windows
+python3 -m venv venv #Crear el entorno virtual Mac
+
+.\venv\Scripts\activate #Activar el entorno virtual En Windows
+source venv/bin/activate #Activar el entorno virtual En Mac o Linux
+source venv/Scripts/activate #Activar el entorno virtual en Windows usando GitBash
+
+#Creado y activado el entorno virtual
+#Instalación
+pip install django mysqlclient #Windows
+pip3 install django mysqlclient #Mac
+(alternativo, ir a instalacion_alternativa.txt)
+
+#Creación de proyecto
+django-admin startproject nombre_proyecto .
+
+#Creación de aplicación
+python manage.py startapp nombre_app
+python3 manage.py startapp nombre_app
+
+#Ejecución del servidor
+python manage.py runserver
+python manage.py runserver 8080
+
+#Genera las migraciones (Crea archivos de migración en base a modelos)
+python manage.py makemigrations
+
+#Aplica las migraciones (Crear las tablas, todo lo que tiene que ver con autenticación)
+python manage.py migrate
+
+#Para entrar al shell de Django
+python manage.py shell
+
+#Para crear un super usuario (admin)
+python manage.py createsuperuser
+
+#Para cambiar la contraseña de un usuario
+python manage.py changepassword nombreusuario 
