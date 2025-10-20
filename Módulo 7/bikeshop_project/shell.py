@@ -106,3 +106,34 @@ perfil_juana.delete()
 
 elena = Cliente.objects.get(email="elena@skillnest.com")
 elena.delete()
+
+##################
+# RELACIONES 1:n #
+##################
+from clientes.models import Cliente
+from ordenes.models import Orden
+
+clientes = Cliente.objects.all()
+
+juana = Cliente.objects.get(email="juana@skillnest.com")
+o1 = Orden.objects.create(cliente=juana, total=1200.50)
+o2 = Orden.objects.create(cliente=juana, total=850, estado='pagada')
+
+juana.ordenes.all()
+o1.cliente
+
+ordenes_pendientes = Orden.objects.filter(estado='pendiente')
+print(ordenes_pendientes)
+
+o1.estado = 'pagada'
+o1.save()
+
+o2.delete()
+
+ordenes = Orden.objects.select_related('cliente').all()
+for orden in ordenes:
+    print(orden.id, orden.cliente.nombre, orden.total)
+
+ordenes_pagadas_concliente = Orden.objects.select_related('cliente').filter(estado='pagada') #prefetch_related
+for orden in ordenes_pagadas_concliente:
+    print(orden.id, orden.cliente.nombre, orden.total)

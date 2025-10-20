@@ -7,6 +7,8 @@ class Cliente(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True) #-> ON UPDATE CURRENT_TIMESTAMP
     #perfil = PerfilCliente
+    #activo = models.BooleanField(default=True) -> al eliminar este pasa a ser False. Borrado Lógico
+    #ordenes = [Orden]
     def __str__(self):
         return self.nombre
 
