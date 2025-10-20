@@ -14,6 +14,7 @@ class Bicicleta(models.Model):
         choices = [('mtb', 'Montaña'), ('ruta', 'Ruta'), ('bmx', 'BMX')],
         default = 'mtb'
     )
+    #ordenes = [Orden]
 
     def __str__(self):
         return f"{self.marca} {self.modelo}"

@@ -137,3 +137,42 @@ for orden in ordenes:
 ordenes_pagadas_concliente = Orden.objects.select_related('cliente').filter(estado='pagada') #prefetch_related
 for orden in ordenes_pagadas_concliente:
     print(orden.id, orden.cliente.nombre, orden.total)
+
+##################
+# RELACIONES n:m #
+##################
+from clientes.models import Cliente
+from bicicletas.models import Bicicleta
+from ordenes.models import Orden, DetalleOrden
+
+juana = Cliente.objects.get(email="juana@skillnest.com")
+o3 = Orden.objects.create(cliente=juana, total=0)
+
+#Para poder crear un nuevo registro de DetalleOrden necesito: Orden y Bicicleta
+bici_giant = Bicicleta.objects.get(id=2)
+bici_sp = Bicicleta.objects.get(id=3)
+
+DetalleOrden.objects.create(orden=o3, bicicleta=bici_giant, cantidad=2, precio_unitario=600)
+DetalleOrden.objects.create(orden=o3, bicicleta=bici_sp, cantidad=1, precio_unitario=750)
+
+o3.bicicletas.all()
+bici_sp.ordenes.all()
+
+#DetallesOrden.objects.filter(orden=o3) -> Lista de todos los DetallesOrden de la orden 3
+#[DO(orden=3, bicicleta=sp, cantidad=2, precio_unitario=600), DO(orden=3, bicicleta=giant, cantidad=1, precio_unitario=750)]
+#detalle = DO(orden=3, bicicleta=giant, cantidad=1, precio_unitario=750)
+#detalle.cantidad * detalle.precio_unitario = 1*750 = 750
+total = sum(detalle.cantidad*detalle.precio_unitario for detalle in DetalleOrden.objects.filter(orden=o3)) #[1200, 750] = 1950
+#[1200,750]
+'''
+lista_a_sumar = []
+detalles = DetallesOrden.objects.filter(orden=o3)
+for detalle in detalles:
+    lista_a_sumar.append(detalle.cantidad*detalle.precio_unitario)
+total = sum(lista_a_sumar)
+'''
+o3.total = total
+o3.save()
+
+#num = 3
+#num*num for num in [1, 2, 3] -> [1, 4, 9]
