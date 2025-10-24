@@ -176,3 +176,73 @@ o3.save()
 
 #num = 3
 #num*num for num in [1, 2, 3] -> [1, 4, 9]
+
+##################
+#   SQL + ORM.   #
+##################
+from clientes.models import Cliente
+clientes = Cliente.objects.all() #Obtener todos los registros -> SELECT * FROM clientes_cliente;
+print(clientes)
+
+from bicicletas.models import Bicicleta
+#Obteniendo todos los registros de Bicicleta donde marca = 'Giant'-> SELECT * FROM bicicletas_bicicleta WHERE marca = 'Giant'
+Bicicleta.objects.filter(marca='Giant')
+
+#Obtener todos los registros de Bicicleta donde modelo comience con A -> SELECT * FROM bicicletas_bicicleta WHERE modelo LIKE 'A%'
+Bicicleta.objects.filter(modelo__startswith='A') #Case sensitive
+Bicicleta.objects.filter(modelo__istartswith='a') #Case insensitive
+
+#Obtener todos los registros de Bicicleta donde modelo termine con Z -> SELECT * FROM bicicletas_bicicleta WHERE modelo LIKE '%z'
+Bicicleta.objects.filter(modelo__endswith='Z') #Case sensitive
+Bicicleta.objects.filter(modelo__iendswith='Z') #Case insensitive
+
+#Obtener todo los registros de Bicicleta donde marca tenga an-> SELECT * FROM bicicletas_bicileta WHERE marca LIKE '%an%'
+Bicicleta.objects.filter(marca__contains='an')
+Bicicleta.objects.filter(marca__icontains='an')
+
+#Obtener los registros de Bicicleta donde precio es mayor a 1000 -> SELECT * FROM bicicletas_bicileta WHERE precio > 1000
+Bicicleta.objects.filter(precio__gt=1000) #mayor que
+Bicicleta.objects.filter(precio__gte=1000) #mayor o igual
+
+#Obtener los registros de Bicicleta donde precio es menor a 1000 -> SELECT * FROM bicicletas_bicileta WHERE precio < 1000
+Bicicleta.objects.filter(precio__lt=1000) #menor que
+Bicicleta.objects.filter(precio__lte=1000) #menor o igual
+
+#Bicicleta que anio mayor al 2022, precio menor a 1500 -> AND
+Bicicleta.objects.filter(anio__gt=2022).filter(precio__lt=1500)
+Bicicleta.objects.filter(anio__gt=2022, precio__lt=1500)
+
+#OR ||
+from django.db.models import Q 
+Bicicleta.objects.filter(Q(anio__gt=2022) | Q(precio__lt=1500))
+
+from ordenes.models import Orden
+#Recibir una lista con la información que me regresa el query "crudo"
+ordenes = Orden.objects.raw("SELECT * FROM ordenes_orden WHERE cliente_id = %s", [2]) #SELECT
+for orden in ordenes: #iteración
+    print(orden.id, orden.fecha, orden.total)
+
+#Obtener solamente ciertas columnas
+Cliente.objects.values("nombre", "email") #Genera un QuerySet de diccionarios SOLO con esos atributos
+Cliente.objects.defer("email") #Excluyo ese campo del resultado.
+
+#Anotaciones
+from django.db.models import Count
+clientes = Cliente.objects.annotate(total_ordenes=Count("ordenes"))
+for cliente in clientes:
+    print(cliente.nombre, cliente.total_ordenes)
+
+#Cursor -> Operaciones más complejas
+from django.db import connection
+with connection.cursor() as cursor:
+    cursor.execute("UPDATE ordenes_orden SET total = total*1.02 WHERE estado = %s", ['pendiente'])
+
+#Obtener ordenes pendientes
+ordenes_pendientes = Orden.objects.filter(estado='pendiente')
+for orden in ordenes:
+    orden.total = orden.total * 1.02
+    orden.save()
+
+#LIMIT .first() .last()
+Cliente.objects.all()[:5] #LIMIT 5
+Cliente.objects.all()[10:20] #LIMIT 10 - 20
