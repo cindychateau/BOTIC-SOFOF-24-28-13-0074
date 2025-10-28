@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Nueva Bicicleta{% endblock %}
+
+{% block content %}
+<h2 class="mt-4 mb-4">Nueva Bicicleta</h2>
+<form method="POST" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'home' %}" class="btn btn-danger">Cancelar</a>
+</form>
+{% endblock %}

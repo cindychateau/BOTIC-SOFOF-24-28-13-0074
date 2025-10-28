@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Bicicletas{% endblock %}
+
+{% block content %}
+<h2 class="mt-4 mb-4">Listado de Bicicletas</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bici in bicicletas %}
+        <tr>
+            <td>{{ bici.marca }}</td>
+            <td>{{ bici.modelo }}</td>
+            <td>{{ bici.precio }}</td>
+            <td></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td class="text-center" colspan="4">No hay bicicletas registradas</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
