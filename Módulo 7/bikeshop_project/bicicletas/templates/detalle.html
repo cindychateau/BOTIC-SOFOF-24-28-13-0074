@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Detalle Bicicleta{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 mt-4">Detalle de la Bicicleta</h2>
+<p>
+    <strong>Marca:</strong> {{ bicicleta.marca }}
+</p>
+<p>
+    <strong>Modelo:</strong> {{ bicicleta.modelo }}
+</p>
+<p>
+    <strong>Precio:</strong> ${{ bicicleta.precio }}
+</p>
+<p>
+    <strong>Disponible:</strong> {% if bicicleta.disponible %}<span class="text-success">Disponible</span>{% else %}<span class="text-danger">No Disponible</span>{% endif %}
+</p>
+<p>
+    <strong>Año:</strong> {{ bicicleta.anio }}
+</p>
+<p>
+    <strong>Tipo:</strong> {{ bicicleta.tipo }}
+</p>
+{% endblock %}

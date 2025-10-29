@@ -20,7 +20,11 @@
             <td>{{ bici.marca }}</td>
             <td>{{ bici.modelo }}</td>
             <td>{{ bici.precio }}</td>
-            <td></td>
+            <td>
+                <a href="{% url 'actualizar' bici.id %}" class="btn btn-warning">Editar</a>
+                <a href="{% url 'eliminar' bici.id %}" class="btn btn-danger">Eliminar</a>
+                <a href="{% url 'detalle' bici.id %}" class="btn btn-info">Detalle</a>
+            </td>
         </tr>
         {% empty %}
         <tr>
