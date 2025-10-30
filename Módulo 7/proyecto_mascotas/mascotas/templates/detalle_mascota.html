@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Detalle de Mascota{% endblock %}
+{% block content %}
+<h1 class="mb-3">Detalle de Mascota</h1>
+<p><strong>Nombre: </strong>{{ mascota.nombre }}</p>
+<p><strong>Especie: </strong>{{ mascota.especie }}</p>
+<p><strong>Edad: </strong>{{ mascota.edad }}</p>
+<p><strong>Descripción: </strong>{{ mascota.descripcion }}</p>
+<a href="{% url 'lista_mascotas' %}" class="btn btn-secondary">Regresar</a>
+{% endblock %}

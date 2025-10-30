@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Borrar Mascota{% endblock %}
+{% block content %}
+<h1>Borrar Mascota</h1>
+<form method="post">
+    <!-- object = instancia de Mascota que tratamos de borrar -->
+    <p>¿Seguro que deseas eliminar a {{ object.nombre }}?</p>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, borrar</button>
+    <a href="{% url 'lista_mascotas' %}" class="btn btn-secondary">Regresar</a>
+</form>
+{% endblock %}

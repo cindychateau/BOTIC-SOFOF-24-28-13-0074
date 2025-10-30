@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Mascotas{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center">Lista de Mascotas</h1>
+<a href="{% url 'crear_mascota' %}" class="btn btn-success mb-3">Crear Mascota</a>
+
+<table class="table table-hover table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Edad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mascota in mascotas %}
+        <tr>
+            <td>{{ mascota.nombre }}</td>
+            <td>{{ mascota.especie }}</td>
+            <td>{{ mascota.edad }}</td>
+            <td>
+                <!-- Todo: Botón detalle -->
+                 <a href="{% url 'editar_mascota' mascota.pk %}" class="btn btn-warning">Editar</a>
+                 <a href="{% url 'borrar_mascota' mascota.pk %}" class="btn btn-danger">Borrar</a>
+                 <a href="{% url 'detalle_mascota' mascota.pk %}" class="btn btn-secondary">Detalle</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
