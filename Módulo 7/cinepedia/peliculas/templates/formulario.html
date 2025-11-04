@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Formulario Película{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header bg-secondary text-white">
+        Nueva Película
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="{% url 'pelicula-index' %}" class="btn btn-secondary">Regresar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

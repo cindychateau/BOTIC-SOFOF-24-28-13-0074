@@ -3,6 +3,33 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1>¡Bienvenido a Cinepedia! Aquí vas a encontrar la lista de pelis</h1>
+    <table class="table table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Nombre</th>
+                <th>Director</th>
+                <th>Fecha de Estreno</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pelicula in peliculas %}
+            <tr>
+                <td>{{ pelicula.nombre }}</td>
+                <td>{{ pelicula.director }}</td>
+                <td>{{ pelicula.fecha_estreno }}</td>
+                <td>
+                    <!-- Todo: Botones de editar, borrar y ver -->
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center">
+                    ¡No hay películas registradas! Crea una nueva película para verla en este espacio
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
