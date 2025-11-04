@@ -127,4 +127,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Todo: agregar las urls de redirección al iniciar sesión y cerrar sesión
+LOGIN_REDIRECT_URL = 'pelicula-index'
+LOGOUT_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
