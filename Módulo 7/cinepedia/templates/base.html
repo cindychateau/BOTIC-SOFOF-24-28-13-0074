@@ -31,6 +31,9 @@
                             <span class="navbar-text text-white me-2">Hola, {{ user.username }}</span>
                         </li>
                         <li class="nav-item">
+                            <a class="btn btn-light btn-sm me-2" href="{% url 'pelicula-nueva' %}">Nueva Peli</a>
+                        </li>
+                        <li class="nav-item">
                             <form action="{% url 'logout' %}" method="post" class="d-inline">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-outline-light btn-sm">

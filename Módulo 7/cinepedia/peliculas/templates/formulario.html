@@ -4,7 +4,7 @@
 {% block content %}
 <div class="card">
     <div class="card-header bg-secondary text-white">
-        Nueva Película
+        {% if object %}Editar{% else %}Nueva{% endif %} Película
     </div>
     <div class="card-body">
         <form method="POST">

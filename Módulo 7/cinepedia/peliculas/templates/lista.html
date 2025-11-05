@@ -20,6 +20,9 @@
                 <td>{{ pelicula.fecha_estreno }}</td>
                 <td>
                     <!-- Todo: Botones de editar, borrar y ver -->
+                    {% if pelicula.publicado_por == request.user %}
+                        <a href="{% url 'pelicula-editar' pelicula.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                    {% endif %}
                 </td>
             </tr>
             {% empty %}
