@@ -19,9 +19,12 @@
                 <td>{{ pelicula.director }}</td>
                 <td>{{ pelicula.fecha_estreno }}</td>
                 <td>
-                    <!-- Todo: Botones de editar, borrar y ver -->
+                    <!-- Botones de editar, borrar y ver -->
+                    <a href="{% url 'pelicula-detalle' pelicula.pk %}" class="btn btn-info btn-sm">Ver</a>
+
                     {% if pelicula.publicado_por == request.user %}
                         <a href="{% url 'pelicula-editar' pelicula.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'pelicula-borrar' pelicula.pk %}" class="btn btn-danger btn-sm">Borrar</a>
                     {% endif %}
                 </td>
             </tr>

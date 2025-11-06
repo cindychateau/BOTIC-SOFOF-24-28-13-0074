@@ -7,8 +7,19 @@ class Pelicula(models.Model):
     fecha_estreno = models.DateField()
     sinopsis = models.TextField()
     publicado_por = models.ForeignKey(User, on_delete=models.CASCADE)
+    #comentarios = [Comentario]
 
     def __str__(self):
         return self.nombre
 
-#Todo: class Comentario
+class Comentario(models.Model):
+    contenido = models.TextField()
+    fecha = models.DateTimeField(auto_now_add=True)
+    pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE, related_name='comentarios')
+    autor = models.ForeignKey(User, on_delete = models.CASCADE)
+
+    class Meta:
+        ordering = ['-fecha'] #Por defecto siempre me va a ordenar los más recientes primero
+
+    def __str__(self):
+        return self.contenido

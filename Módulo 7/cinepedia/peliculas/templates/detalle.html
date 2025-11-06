@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Detalle Película{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header bg-warning text-white">
+        <h4>{{ pelicula.nombre }}</h4>
+    </div>
+    <div class="card-body">
+        <p>
+            <strong>Director: </strong>{{ pelicula.director }}
+        </p>
+        <p>
+            <strong>Fecha de Estreno: </strong>{{ pelicula.fecha_estreno }}
+        </p>
+        <p>
+            <strong>Sinopsis: </strong>{{ pelicula.sinopsis }}
+        </p>
+    </div>
+    <div class="card-footer">
+        <small>Publicado por: {{ pelicula.publicado_por }}</small>
+    </div>
+</div>
+<hr>
+<h5>Comentarios</h5>
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ comentario_form.as_p }}
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+<hr>
+<!-- Todo: Mostrar los comentarioss -->
+{% endblock %}
